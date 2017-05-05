@@ -1,0 +1,29 @@
+{
+  "name": "emptytext",
+  "version": "1.0.5",
+  "description": "",
+  "main": "empty-text.umd.js",
+  "jsnext:main": "empty-text.js",
+  "module": "empty-text.js",
+  "types": "empty-text.d.ts",
+  "scripts": {
+    "copy": "ts-node tools/copy-package.ts && ts-node tools/cleanup.ts && ts-node tools/copy-readme.ts",
+    "bundle": "rimraf dist && tsc -p tsconfig-esm.json && rollup -c rollup.config.js && ngc",
+    "build": "npm run bundle && npm run copy"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/compiler": "^4.0.3",
+    "@angular/core": "^4.1.0",
+    "@angular/platform-browser": "^4.1.0",
+    "rxjs": "^5.3.0",
+    "zone.js": "^0.8.9"
+  },
+  "devDependencies": {
+    "@angular/compiler": "^4.1.0",
+    "@angular/compiler-cli": "^4.1.0",
+    "@types/node": "^7.0.14",
+    "typescript": "^2.3.2"
+  }
+}
