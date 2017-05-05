@@ -1,14 +1,18 @@
-import { Directive,ElementRef } from '@angular/core';
+import { Directive,ElementRef,AfterViewInit } from '@angular/core';
 import { EmptyTextService } from './empty-text.service';
 @Directive({ selector: '[emptytext]' })
-export class EmptyTextDirective {
-    constructor(el:ElementRef,private empservice:EmptyTextService) { 
+export class EmptyTextDirective implements AfterViewInit{
+    constructor(private el:ElementRef,private empservice:EmptyTextService) { 
        
-        let content:string = el.nativeElement.innerHTML;
-        console.log("content",content);
-        if(!content){
-            el.nativeElement.innerHTML = this.empservice.get();
-        }
         
+    }
+
+    ngAfterViewInit(){
+        
+        let content:string = this.el.nativeElement.innerHTML;
+       
+        if(!content){
+            this.el.nativeElement.innerHTML = this.empservice.get();
+        }
     }
 }
