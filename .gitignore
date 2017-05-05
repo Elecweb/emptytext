@@ -9,7 +9,6 @@ Thumbs.db
 *.map
 *.d.ts
 
-/lib/*
 /tools/*
 
 .vscode/*
