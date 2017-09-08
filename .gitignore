@@ -8,7 +8,7 @@ Thumbs.db
 *.js
 *.map
 *.d.ts
-
+/dist/
 /tools/*
 /example/*
 
