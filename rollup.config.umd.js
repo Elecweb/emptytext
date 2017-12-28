@@ -5,17 +5,19 @@ import typescript from 'rollup-plugin-typescript';
 var sass = require('node-sass');
 import {nameLibrary,PATH_SRC,PATH_DIST} from './config-library.js';
 export default {
-  entry: PATH_SRC+nameLibrary+'.ts',
-  format: 'umd',
-  moduleName: nameLibrary,
+  input: PATH_SRC+nameLibrary+'.ts',
+  output: {
+    name: nameLibrary,
+    format: 'umd',
+    file: PATH_DIST+nameLibrary+".umd.js",
+    sourcemap:true,
+  },
   external: [
     '@angular/core',
     "@angular/platform-browser",
     "rxjs/Rx",
     "@angular/forms"
   ],
-  sourceMap:true,
-  dest:PATH_DIST+nameLibrary+".umd.js",
   plugins: [
     angular(
       {
